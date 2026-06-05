@@ -78,17 +78,6 @@
   @keyframes drift { from { transform: translate3d(0,0,0); } to { transform: translate3d(-600px,-320px,0); } }
   @keyframes twinkle { 0%,100% { opacity: .35; } 50% { opacity: .7; } }
 
-  /* ---- 250 graphic — video clipped to the numerals ---- */
-  .flag-250 {
-    display: block;
-    width: clamp(280px, 70vw, 820px);
-    aspect-ratio: 2.55 / 1;
-    object-fit: cover;
-    filter: drop-shadow(0 8px 30px rgba(0,0,0,.45));
-    /* mask the video to the shape of "250" */
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 118'%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='128' letter-spacing='-4'%3E250%3C/text%3E%3C/svg%3E") center / contain no-repeat;
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 118'%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='128' letter-spacing='-4'%3E250%3C/text%3E%3C/svg%3E") center / contain no-repeat;
-  }
 
   /* ---- Down arrow ---- */
   .scroll-cue { animation: bob 1.8s ease-in-out infinite; }
@@ -209,7 +198,9 @@
 
 <!-- ===================== SECTION 1 — HERO ===================== -->
 <section id="hero" class="relative h-screen min-h-[640px] overflow-hidden bg-navy">
-  <div class="absolute inset-0 img-slot" data-label="Hero image bank — full-bleed Americana"><span class="grid-tex"></span></div>
+  <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="auto">
+    <source src="assets/hero-bkg.mp4" type="video/mp4" />
+  </video>
   <div class="absolute inset-0 bg-navy/[.62]"></div>
   <div class="starfield" id="heroStars">
     <div class="stars"></div>
@@ -217,13 +208,8 @@
   </div>
 
   <div class="relative z-20 h-full flex flex-col items-center justify-center text-center px-6">
-    <div id="flag250" class="select-none">
-      <video class="flag-250" autoplay muted loop playsinline aria-label="250">
-        <source src="istockphoto-494101878-640_adpp_is.mp4" type="video/mp4" />
-      </video>
-    </div>
     <h1 class="headline text-3xl md:text-5xl lg:text-6xl text-white max-w-4xl mt-2 md:mt-4">
-      Celebrating America at 250:<br class="hidden md:block" /> What Citizens Really Believe
+      America at 250:<br class="hidden md:block" />  The State of Our Union
     </h1>
     <p class="text-base md:text-xl text-white/80 mt-6 max-w-2xl font-normal">
       A landmark survey of American opinion at 250 years — pride, democracy, the dream, and what comes next.
@@ -241,36 +227,43 @@
 <section id="opening" class="bg-navy py-24 md:py-36 px-6">
   <div class="max-w-4xl mx-auto text-center">
     <p class="reveal headline text-2xl md:text-4xl lg:text-5xl leading-tight text-white">
-      Two hundred and fifty years after the Declaration of Independence, Americans still hold strong opinions about their country&mdash;and about each other.
-    </p>
+      Navigator surveyed 2,059 Americans and 
+      held four focus groups to learn about 
+      American opinion at 250 years — on pride, 
+      the flag, democracy, the American dream, 
+      and what comes next.Two hundred and fifty years after 
+      the Declaration of Independence, Americans still hold 
+      strong opinions about their country and about each other.    </p>
     <p class="reveal reveal-d1 mt-8 text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-normal normal-case">
       <!-- INSERT: Blurb about the study and demographics -->
-      Navigator Research surveyed [2,000] Americans [field dates] to measure how the country sees itself at this milestone. Results are weighted to be representative of the national adult population.
+      Navigator Research surveyed 2,059 Americans from May 27th to June 1, 2026 to measure how the country sees itself at this milestone. Results are weighted to be representative of the national registered voter population.
     </p>
   </div>
 
   <div class="max-w-5xl mx-auto mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 text-center">
     <div class="reveal">
-      <div class="headline text-gold text-6xl md:text-7xl"><span class="counter" data-count="33">0</span><span>%</span></div>
-      <p class="mt-3 text-white/70 text-sm md:text-base normal-case font-normal max-w-[22ch] mx-auto">say that in 250 years, America will be worse off than it is today</p>
+      <div class="headline text-gold text-6xl md:text-7xl"><span class="counter" data-count="64">0</span><span>%</span></div>
+      <p class="mt-3 text-white/70 text-sm md:text-base normal-case font-normal max-w-[22ch] mx-auto">of Americans say the country is on the wrong track
+</p>
     </div>
     <div class="reveal reveal-d1">
-      <div class="headline text-gold text-6xl md:text-7xl"><span class="counter" data-count="48">0</span><span>%</span></div>
-      <p class="mt-3 text-white/70 text-sm md:text-base normal-case font-normal max-w-[24ch] mx-auto">say America is in decline</p>
+      <div class="headline text-gold text-6xl md:text-7xl"><span class="counter" data-count="250">0</span><span></span></div>
+      <p class="mt-3 text-white/70 text-sm md:text-base normal-case font-normal max-w-[24ch] mx-auto">1 in 3 think in 250 years, America will be better off than it is right now
+</p>
     </div>
     <div class="reveal reveal-d2">
-      <div class="headline text-gold text-6xl md:text-7xl"><span class="counter" data-count="46">0</span><span>%</span></div>
-      <p class="mt-3 text-white/70 text-sm md:text-base normal-case font-normal max-w-[22ch] mx-auto">say they feel proud to be an American today</p>
+      <div class="headline text-gold text-6xl md:text-7xl"><span class="counter" data-count="59">0</span><span>%</span></div>
+      <p class="mt-3 text-white/70 text-sm md:text-base normal-case font-normal max-w-[22ch] mx-auto">say being American is very important to their identity</p>
     </div>
   </div>
 </section>
 
 <!-- ===================== SECTION 3 — CHAPTER 1: PRIDE & IDENTITY ===================== -->
 <section id="pride" class="bg-cream text-navy">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
+  <div class="mx-auto grid grid-cols-1 lg:grid-cols-2">
     <!-- sticky text -->
-    <div class="lg:sticky lg:top-0 lg:h-screen flex items-center px-6 md:px-12 py-20 lg:py-0">
-      <div class="max-w-xl">
+    <div class="lg:sticky lg:top-0 flex items-center px-6 md:px-12 py-20 lg:py-10">
+      <div class="max-w-full lg:max-w-xl lg:ml-auto">
         <p class="eyebrow text-xs text-gold mb-4">Chapter 1 &middot; Pride &amp; Identity</p>
         <h2 class="headline text-4xl md:text-5xl lg:text-6xl mb-6">How Proud Are Americans of Their Country?</h2>
         <p class="text-navy/70 text-lg leading-relaxed mb-10 normal-case">
@@ -280,21 +273,26 @@
 
         <!-- Animated bar chart -->
         <div class="space-y-5">
-          <div class="barrow" style="--w:59%">
-            <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>Very important</span><span class="text-navy">59%</span></div>
+          <div class="barrow" style="--w:61%">
+            <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>Rights and freedoms in the U.S.</span><span class="text-navy">61%</span></div>
             <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy"></div></div>
           </div>
-          <div class="barrow" style="--w:28%">
-            <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>Somewhat important</span><span>28%</span></div>
-            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/70"></div></div>
+          <div class="barrow" style="--w:55%">
+            <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>The Constitution, Bill of Rights, and Declaration of Independence </span><span>55%</span></div>
+            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/80"></div></div>
           </div>
-          <div class="barrow" style="--w:8%">
-            <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>Not too important</span><span>8%</span></div>
-            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/50"></div></div>
+          <div class="barrow" style="--w:41%">
+            <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>America’s history</span><span>41%</span></div>
+            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/60"></div></div>
           </div>
-          <div class="barrow" style="--w:4%">
-            <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>Not important at all</span><span>4%</span></div>
-            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/30"></div></div>
+          <div class="barrow" style="--w:38%">
+            <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>The American Dream</span><span>38%</span></div>
+            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/40"></div></div>
+          </div>
+
+          <div class="barrow" style="--w:37%">
+            <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>The American military</span><span>37%</span></div>
+            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/20"></div></div>
           </div>
           <p class="text-xs text-navy/40 pt-2 normal-case">Q6 &middot; "How important is being an American to your identity?" &middot; n=[2,000] &middot; placeholder values</p>
         </div>
@@ -310,8 +308,8 @@
     </div>
 
     <!-- image reveals -->
-    <div class="hidden lg:block">
-      <img src="assets/statue-of-liberty.jpeg" loading="lazy" decoding="async" alt="Statue of Liberty" class="h-screen w-full object-cover" />
+    <div class="hidden h-full lg:block">
+      <img src="assets/chapter-1-img.jpg" loading="lazy" decoding="async" alt="The Bill of Rights" class="h-full w-full object-cover" />
     </div>
   </div>
 </section>
@@ -322,16 +320,16 @@
   <div class="relative h-[55vh] min-h-[360px] overflow-hidden">
     <img src="assets/dc.jpeg" loading="lazy" decoding="async" alt="Washington, D.C." class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent"></div>
-    <p class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-xs normal-case px-6 text-center">A nation still arguing about how it should govern itself.</p>
+    <p class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-xs normal-case px-6 text-center">A nation still arguing about how it should govern itself</p>
   </div>
 
   <div class="max-w-6xl mx-auto px-6 md:px-12 py-20 md:py-28">
     <div class="max-w-2xl mb-14">
       <p class="reveal eyebrow text-xs text-gold mb-4">Chapter 2 &middot; Democracy &amp; Rights</p>
-      <h2 class="reveal reveal-d1 headline text-4xl md:text-5xl lg:text-6xl mb-6">What Americans Believe About Democracy Today</h2>
+      <h2 class="reveal reveal-d1 headline text-4xl md:text-5xl lg:text-6xl mb-6">What Americans Believe About Freedom Today</h2>
       <p class="reveal reveal-d2 text-white/70 text-lg leading-relaxed normal-case">
-        <!-- INSERT: blurb around democracy from B2 & focus group pull quotes -->
-        Democracy and unalienable rights are key to the American experience, according to our survey. See more about how important democracy is to Americans
+        <!-- INSERT: blurb around freedom from B2 & focus group pull quotes -->
+        Freedom is central to the American experience. See more about how Americans feel about their freedoms.
       </p>
     </div>
 
@@ -346,13 +344,13 @@
       <div class="tab-panel" id="dpanel-all" role="tabpanel" aria-labelledby="dtab-all">
         <div class="grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <div class="headline text-gold text-7xl md:text-8xl"><span class="counter" data-count="88">0</span><span>%</span></div>
-            <p class="mt-4 text-white/75 text-lg normal-case max-w-sm">say democracy is an important value to being an American. <span class="text-white/35">(VH24 placeholder)</span></p>
+            <div class="headline text-gold text-7xl md:text-8xl"><span class="counter" data-count="96">0</span><span>%</span></div>
+            <p class="mt-4 text-white/75 text-lg normal-case max-w-sm">say freedom is an important value to <span class="text-white/35">being an</span> American.</p>
           </div>
           <div class="space-y-3">
-            <div class="barrow" style="--w:88%"><div class="flex justify-between text-sm mb-1.5"><span>Extremely / very important</span><span class="text-gold font-extrabold">88%</span></div><div class="h-3 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-gold"></div></div></div>
-            <div class="barrow" style="--w:17%"><div class="flex justify-between text-sm mb-1.5"><span>Somewhat important</span><span class="font-extrabold">17%</span></div><div class="h-3 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/60"></div></div></div>
-            <div class="barrow" style="--w:7%"><div class="flex justify-between text-sm mb-1.5"><span>Not important</span><span class="font-extrabold">7%</span></div><div class="h-3 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/30"></div></div></div>
+            <div class="barrow" style="--w:96%"><div class="flex justify-between text-sm mb-1.5"><span>Important</span><span class="text-gold font-extrabold">96%</span></div><div class="h-3 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-gold"></div></div></div>
+            <div class="barrow" style="--w:4%"><div class="flex justify-between text-sm mb-1.5"><span>Unimportant</span><span class="font-extrabold">4%</span></div><div class="h-3 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/60"></div></div></div>
+            <div class="barrow" style="--w:0%"><div class="flex justify-between text-sm mb-1.5"><span>Get rid of the somewhat important</span><span class="font-extrabold">0%</span></div><div class="h-3 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/30"></div></div></div>
           </div>
         </div>
       </div>
@@ -360,19 +358,19 @@
       <div class="tab-panel" id="dpanel-party" role="tabpanel" aria-labelledby="dtab-party" hidden>
         <p class="text-white/50 text-sm mb-6 normal-case">PTYID &middot; "Democracy is important to me" &middot; placeholder splits</p>
         <div class="space-y-5">
-          <div class="barrow" style="--w:93%"><div class="flex justify-between text-sm mb-1.5"><span>Democrat</span><span class="font-extrabold text-gold">93%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-gold"></div></div></div>
-          <div class="barrow" style="--w:70%"><div class="flex justify-between text-sm mb-1.5"><span>Republican</span><span class="font-extrabold">70%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/70"></div></div></div>
-          <div class="barrow" style="--w:70%"><div class="flex justify-between text-sm mb-1.5"><span>Independent</span><span class="font-extrabold">70%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/50"></div></div></div>
+          <div class="barrow" style="--w:97%"><div class="flex justify-between text-sm mb-1.5"><span>Democrats</span><span class="font-extrabold text-gold">97%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-gold"></div></div></div>
+          <div class="barrow" style="--w:89%"><div class="flex justify-between text-sm mb-1.5"><span>Independents</span><span class="font-extrabold">89%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/70"></div></div></div>
+          <div class="barrow" style="--w:96%"><div class="flex justify-between text-sm mb-1.5"><span>Republicans</span><span class="font-extrabold">96%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/50"></div></div></div>
         </div>
       </div>
 
       <div class="tab-panel" id="dpanel-gen" role="tabpanel" aria-labelledby="dtab-gen" hidden>
         <p class="text-white/50 text-sm mb-6 normal-case">D101 &middot; by generation &middot; placeholder splits</p>
         <div class="space-y-5">
-          <div class="barrow" style="--w:94%"><div class="flex justify-between text-sm mb-1.5"><span>Boomers</span><span class="font-extrabold text-gold">94%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-gold"></div></div></div>
-          <div class="barrow" style="--w:85%"><div class="flex justify-between text-sm mb-1.5"><span>Gen X</span><span class="font-extrabold">85%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/70"></div></div></div>
-          <div class="barrow" style="--w:87%"><div class="flex justify-between text-sm mb-1.5"><span>Millennials</span><span class="font-extrabold">87%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/55"></div></div></div>
-          <div class="barrow" style="--w:82%"><div class="flex justify-between text-sm mb-1.5"><span>Gen Z</span><span class="font-extrabold">82%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/40"></div></div></div>
+          <div class="barrow" style="--w:94%"><div class="flex justify-between text-sm mb-1.5"><span>Gen Z</span><span class="font-extrabold text-gold">94%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-gold"></div></div></div>
+          <div class="barrow" style="--w:94%"><div class="flex justify-between text-sm mb-1.5"><span>Millennials</span><span class="font-extrabold">94%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/70"></div></div></div>
+          <div class="barrow" style="--w:94%"><div class="flex justify-between text-sm mb-1.5"><span>Gen X</span><span class="font-extrabold">94%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/55"></div></div></div>
+          <div class="barrow" style="--w:96%"><div class="flex justify-between text-sm mb-1.5"><span>Boomers</span><span class="font-extrabold">96%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/40"></div></div></div>
         </div>
       </div>
     </div>
@@ -395,7 +393,7 @@
 
 <!-- ===================== SECTION 5 — CHAPTER 3: ECONOMY & THE AMERICAN DREAM ===================== -->
 <section id="economy" class="bg-cream text-navy">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
+  <div class="mx-auto grid grid-cols-1 lg:grid-cols-2">
     <!-- sticky image -->
     <div class="hidden lg:block order-1">
       <div class="lg:sticky lg:top-0 h-screen overflow-hidden">
@@ -404,22 +402,22 @@
     </div>
     <!-- text scrolls -->
     <div class="order-2 px-6 md:px-12 py-20 md:py-28">
-      <div class="max-w-xl ml-auto">
+      <div class="max-w-full lg:max-w-xl mr-auto ">
         <p class="reveal eyebrow text-xs text-gold mb-4">Chapter 3 &middot; Economy &amp; the American Dream</p>
         <h2 class="reveal reveal-d1 headline text-4xl md:text-5xl lg:text-6xl mb-6">What Does "The American Dream" Mean to You?</h2>
         <p class="reveal reveal-d2 text-navy/70 text-lg leading-relaxed mb-12 normal-case">
           <!-- INSERT: blurb around Q127, Q128 & Q130 -->
-          Americans have a complicated relationship with the American Dream. More than a third of Americans (34%) say it is no longer achievable. 45% say they are currently living or have lived the American Dream. Read more below
+          Americans have a complicated relationship with the American Dream. More than a third of Americans (34%) say it is no longer achievable. 39% say they are currently living or have lived the American Dream. Read more below
         </p>
 
         <div class="grid grid-cols-2 gap-8 mb-14">
           <div class="reveal">
-            <div class="headline text-gold text-6xl md:text-7xl"><span class="counter" data-count="26">0</span><span>%</span></div>
-            <p class="mt-3 text-navy/65 text-sm normal-case">say the American Dream is still achievable for most Americans today <span class="text-navy/35">(Q128)</span></p>
+            <div class="headline text-gold text-6xl md:text-7xl"><span class="counter" data-count="39">0</span><span>%</span></div>
+            <p class="mt-3 text-navy/65 text-sm normal-case">think the American Dream is still achievable, but it is much harder for most Americans today than in the past<span class="text-navy/35"></span></p>
           </div>
           <div class="reveal reveal-d1">
-            <div class="headline text-gold text-6xl md:text-7xl"><span class="counter" data-count="45">0</span><span>%</span></div>
-            <p class="mt-3 text-navy/65 text-sm normal-case">associate being able to support yourself and your family financially with the American Dream <span class="text-navy/35">(Q130)</span></p>
+            <div class="headline text-gold text-6xl md:text-7xl"><span class="counter" data-count="29">0</span><span>%</span></div>
+            <p class="mt-3 text-navy/65 text-sm normal-case">3 in 10 think they’ve achieved the American Dream while the same number (29%) think it’s out of reach  <span class="text-navy/35">(Q130)</span></p>
           </div>
         </div>
 
@@ -436,15 +434,31 @@
 
 <!-- ===================== SECTION 6 — CHAPTER 4: WHAT IT MEANS TO BE AMERICAN ===================== -->
 <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-navy">
-  <div class="absolute inset-0 img-slot" data-label="Unifying image — diverse crowd / landscape / celebration"><span class="grid-tex"></span></div>
+  <div class="inset-0 img-slot" data-label="Unifying image — diverse crowd / landscape / celebration">
+    <span class="grid-tex"></span>
+  </div>
   <div class="absolute inset-0 bg-navy/[.72]"></div>
   <div class="relative z-10 max-w-4xl mx-auto px-6 text-center py-28">
     <p class="reveal eyebrow text-xs text-gold mb-5">Chapter 4 &middot; What It Means to Be American</p>
     <h2 class="reveal reveal-d1 headline text-4xl md:text-6xl lg:text-7xl mb-8">America's Best Days&mdash;Ahead or Behind Us?</h2>
     <p class="reveal reveal-d2 text-white/80 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto normal-case font-normal">
       <!-- INSERT: closing statement based on data results -->
-      The numbers tell a complicated story. Americans are clear-eyed about the country's problems, yet stubbornly hopeful about its future. Across every divide, one thread holds: the belief that the American story is still being written.
+      The numbers tell a complicated story. Americans are clear-eyed about the country's problems, 
+      yet stubbornly hopeful about its future. Across every divide, one thread holds: 
+      the belief that the American story is still being written.
     </p>
+
+    <!-- new section -->
+    <div class="reveal space-y-5">
+      <p class="text-sm font-extrabold uppercase tracking-wide  pt-7 pb-0 text-white/60">How do people feel about being an American today?<span class="text-white/30"></span></p>
+      <div class="barrow" style="--w:49%"><div class="flex justify-between text-sm mb-1.5"><span>Hopeful</span><span class="text-gold font-extrabold">49%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-gold"></div></div></div>
+      <div class="barrow" style="--w:46%"><div class="flex justify-between text-sm mb-1.5"><span>Proud</span><span class="font-extrabold">46%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/80"></div></div></div>
+      <div class="barrow" style="--w:44%"><div class="flex justify-between text-sm mb-1.5"><span>Frustrated</span><span class="font-extrabold">44%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/60"></div></div></div>
+      <div class="barrow" style="--w:32%"><div class="flex justify-between text-sm mb-1.5"><span>Discouraged</span><span class="font-extrabold">32%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/40"></div></div></div>
+      <div class="barrow" style="--w:31%"><div class="flex justify-between text-sm mb-1.5"><span>Anxious</span><span class="font-extrabold">31%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/20"></div></div></div>
+      <!-- <p class="text-xs text-white/40 pt-2 normal-case">Q59&ndash;Q62 &middot; n=[2,000] &middot; [poll date] &middot; placeholder values. Dev: Datawrapper iframe slot for state-level map.</p> -->
+    </div>
+
     <figure class="reveal reveal-d3 mt-12 max-w-2xl mx-auto">
       <blockquote class="text-2xl md:text-3xl headline normal-case leading-tight text-gold">
         "We've never been a finished country. That's the whole point of us."
@@ -465,32 +479,54 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
-      <article class="reveal rounded-3xl bg-navy text-white p-7 flex flex-col">
-        <span class="text-gold headline text-5xl">01</span>
-        <h3 class="headline text-2xl mt-3">Abraham Lincoln</h3>
-        <p class="text-white/70 text-sm mt-auto pt-4 normal-case">named by <span class="text-gold font-extrabold">46%</span></p>
+    
+    <div class="flex flex-col sm:flex-row flex-wrap" style="justify-content: center;">
+
+      <article class="p-2  w-full sm:w-1/2 lg:w-1/3">
+        <div class="reveal rounded-3xl bg-navy text-white p-7 flex flex-col w-full h-full">
+          <img src="assets/president/abraham_l.jpeg" class="w-full rounded-lg mb-3" style="aspect-ratio: 3/2; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+          <span class="text-gold headline text-5xl">01</span>
+          <h3 class="headline text-2xl mt-3">Abraham Lincoln</h3>
+          <p class="text-white/70 text-sm mt-auto pt-4 normal-case">named by <span class="text-gold font-extrabold">46%</span></p>
+        </div>
       </article>
-      <article class="reveal reveal-d1 rounded-3xl bg-navy text-white p-7 flex flex-col">
-        <span class="text-gold headline text-5xl">02</span>
-        <h3 class="headline text-2xl mt-3">Martin Luther King Jr.</h3>
-        <p class="text-white/70 text-sm mt-auto pt-4 normal-case">named by <span class="text-gold font-extrabold">44%</span></p>
+
+      <article class="p-2  w-full sm:w-1/2 lg:w-1/3">
+        <div class="reveal reveal-d1 rounded-3xl bg-navy text-white p-7 flex flex-col w-full h-full">
+          <img src="assets/president/Martin_Luther King_Jr.jpeg" class="w-full rounded-lg mb-3" style="aspect-ratio: 3/2; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+          <span class="text-gold headline text-5xl">02</span>
+          <h3 class="headline text-2xl mt-3">Martin Luther King Jr.</h3>
+          <p class="text-white/70 text-sm mt-auto pt-4 normal-case">named by <span class="text-gold font-extrabold">44%</span></p>
+        </div>
       </article>
-      <article class="reveal reveal-d2 rounded-3xl bg-navy text-white p-7 flex flex-col">
-        <span class="text-gold headline text-5xl">03</span>
-        <h3 class="headline text-2xl mt-3">John F. Kennedy</h3>
-        <p class="text-white/70 text-sm mt-auto pt-4 normal-case">named by <span class="text-gold font-extrabold">43%</span></p>
+
+      <article class="p-2  w-full sm:w-1/2 lg:w-1/3">
+        <div class="reveal reveal-d2 rounded-3xl bg-navy text-white p-7 flex flex-col w-full h-full">
+          <img src="assets/president/John_F._Kennedy.jpeg" class="w-full rounded-lg mb-3" style="aspect-ratio: 3/2; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+          <span class="text-gold headline text-5xl">03</span>
+          <h3 class="headline text-2xl mt-3">John F. Kennedy</h3>
+          <p class="text-white/70 text-sm mt-auto pt-4 normal-case">named by <span class="text-gold font-extrabold">43%</span></p>
+        </div>
       </article>
-      <article class="reveal reveal-d3 rounded-3xl bg-navy text-white p-7 flex flex-col">
-        <span class="text-gold headline text-5xl">04</span>
-        <h3 class="headline text-2xl mt-3">George Washington</h3>
-        <p class="text-white/70 text-sm mt-auto pt-4 normal-case">named by <span class="text-gold font-extrabold">35%</span></p>
+      
+      <article class="p-2  w-full sm:w-1/2 lg:w-1/3">
+        <div class="reveal reveal-d3 rounded-3xl bg-navy text-white p-7 flex flex-col w-full h-full">
+          <img src="assets/president/George_Washington.jpeg" class="w-full rounded-lg mb-3" style="aspect-ratio: 3/2; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+          <span class="text-gold headline text-5xl">04</span>
+          <h3 class="headline text-2xl mt-3">George Washington</h3>
+          <p class="text-white/70 text-sm mt-auto pt-4 normal-case">named by <span class="text-gold font-extrabold">35%</span></p>
+        </div>
       </article>
-      <article class="reveal reveal-d4 rounded-3xl bg-navy text-white p-7 flex flex-col">
-        <span class="text-gold headline text-5xl">05</span>
-        <h3 class="headline text-2xl mt-3">Barack Obama</h3>
-        <p class="text-white/70 text-sm mt-auto pt-4 normal-case">named by <span class="text-gold font-extrabold">34%</span></p>
+
+      <article class="p-2  w-full sm:w-1/2 lg:w-1/3">
+        <div class="reveal reveal-d4 rounded-3xl bg-navy text-white p-7 flex flex-col w-full h-full">
+          <img src="assets/president/barak-obama.jpeg" class="w-full rounded-lg mb-3" style="aspect-ratio: 3/2; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+          <span class="text-gold headline text-5xl">05</span>
+          <h3 class="headline text-2xl mt-3">Barack Obama</h3>
+          <p class="text-white/70 text-sm mt-auto pt-4 normal-case">named by <span class="text-gold font-extrabold">34%</span></p>
+        </div>
       </article>
+
     </div>
   </div>
 </section>
@@ -507,15 +543,120 @@
 
       <div class="reveal space-y-5">
         <p class="text-sm font-extrabold uppercase tracking-wide text-white/60">Do you display an American flag outside your home, such as on your house, apartment, porch, yard, or vehicle? <span class="text-white/30">(Q59)</span></p>
-        <div class="barrow" style="--w:41%"><div class="flex justify-between text-sm mb-1.5"><span>Yes, year-round</span><span class="text-gold font-extrabold">41%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-gold"></div></div></div>
-        <div class="barrow" style="--w:28%"><div class="flex justify-between text-sm mb-1.5"><span>Only on holidays</span><span class="font-extrabold">28%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/70"></div></div></div>
-        <div class="barrow" style="--w:25%"><div class="flex justify-between text-sm mb-1.5"><span>No, never</span><span class="font-extrabold">25%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/40"></div></div></div>
+        <div class="barrow" style="--w:27%"><div class="flex justify-between text-sm mb-1.5"><span>Yes - year round</span><span class="text-gold font-extrabold">27%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-gold"></div></div></div>
+        <div class="barrow" style="--w:14%"><div class="flex justify-between text-sm mb-1.5"><span>Yes - only on holidays</span><span class="font-extrabold">14%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/80"></div></div></div>
+        <div class="barrow" style="--w:19%"><div class="flex justify-between text-sm mb-1.5"><span>Not anymore, but I used to</span><span class="font-extrabold">19%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/60"></div></div></div>
+        <div class="barrow" style="--w:39%"><div class="flex justify-between text-sm mb-1.5"><span>No, I’ve never done that</span><span class="font-extrabold">39%</span></div><div class="h-4 rounded-full bg-white/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-white/40"></div></div></div>
         <p class="text-xs text-white/40 pt-2 normal-case">Q59&ndash;Q62 &middot; n=[2,000] &middot; [poll date] &middot; placeholder values. Dev: Datawrapper iframe slot for state-level map.</p>
       </div>
+      
     </div>
 
     <div class="reveal reveal-d1">
       <img src="assets/flag.jpg" loading="lazy" decoding="async" alt="American flag" class="w-full rounded-[10px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.6)] object-cover" style="aspect-ratio:1.9/1" />
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===================== SECTION 10 — MILESTONE EVENTS ===================== -->
+<section class="py-20 bg-cream  px-6 lg:px-0 md:px-12">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-12">
+      <p class="reveal eyebrow text-xs text-gold mb-4">250 Years</p>
+      <h2 class="reveal reveal-d1 headline text-4xl text-navy md:text-5xl lg:text-6xl mb-5">The Moments That Make Americans Most Proud</h2>
+      <p class="reveal reveal-d2 text-lg normal-case text-navy/40">
+        The top five events across 250 years that Americans say make them proudest to be American. <span class="text-white/40">(Q66)</span>
+      </p>
+    </div>
+  
+
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5" >
+
+
+      <article class="reveal rounded-2xl bg-navy text-white flex flex-col w-full p-3">
+        <img src="assets/placeholder-img.jpg" class="w-full rounded-lg mb-3" style="aspect-ratio: 400/315; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+        <div class="mt-3 headline text-gold text-4xl"><span class="counter" data-count="54">0</span><span>%</span></div>
+        <p class="mt-2 text-white/75 text-sm normal-case">say the signing of the Declaration of Independence, Constitution, and Bill of Rights</p>
+      </article>
+
+      <article class="reveal rounded-2xl bg-navy text-white flex flex-col w-full p-3">
+        <img src="assets/placeholder-img.jpg" class="w-full rounded-lg mb-3" style="aspect-ratio: 400/315; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+        <div class="mt-3 headline text-gold text-4xl"><span class="counter" data-count="57">0</span><span>%</span></div>
+        <p class="mt-2 text-white/75 text-sm normal-case">say the abolition of slavery</p>
+      </article>
+          
+      <article class="reveal rounded-2xl bg-navy text-white flex flex-col w-full p-3">
+        <img src="assets/placeholder-img.jpg" class="w-full rounded-lg mb-3" style="aspect-ratio: 400/315; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+        <div class="mt-3 headline text-gold text-4xl"><span class="counter" data-count="42">0</span><span>%</span></div>
+        <p class="mt-2 text-white/75 text-sm normal-case">say the expansion of voting rights to include women and Americans of color</p>
+      </article>
+
+      <article class="reveal rounded-2xl bg-navy text-white flex flex-col w-full p-3">
+        <img src="assets/placeholder-img.jpg" class="w-full rounded-lg mb-3" style="aspect-ratio: 400/315; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+        <div class="mt-3 headline text-gold text-4xl"><span class="counter" data-count="42">0</span><span>%</span></div>
+        <p class="mt-2 text-white/75 text-sm normal-case">say the Civil Rights movement</p>
+      </article>
+
+      <article class="reveal rounded-2xl bg-navy text-white flex flex-col w-full p-3">
+        <img src="assets/placeholder-img.jpg" class="w-full rounded-lg mb-3" style="aspect-ratio: 400/315; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+        <div class="mt-3 headline text-gold text-4xl"><span class="counter" data-count="48">0</span><span>%</span></div>
+        <p class="mt-2 text-white/75 text-sm normal-case">say firefighters and first responders saving Americans on 9/11</p>
+      </article>
+
+    </div>
+
+    <figure class="border-l-4 border-navy pl-6 my-12">
+      <blockquote class="text-l italic text-navy leading-snug normal-case">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      </blockquote>
+    </figure>
+
+    <p class="text-center text-navy/40 text-xs mt-8 normal-case px-6">Q66 &middot; placeholder values &middot; horizontal scroll on mobile</p>
+
+  </div>
+</section>
+
+<!-- ===================== SECTION 11 — THE NEXT 250 YEARS ===================== -->
+<section id="report" class="relative overflow-hidden bg-navy">
+  <img src="assets/child-american-flag.jpg" loading="lazy" decoding="async" alt="Child holding an American flag" class="absolute inset-0 w-full h-full object-cover" />
+  <div class="absolute inset-0 bg-navy/[.78]"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center py-28 md:py-36">
+    <h2 class="reveal headline text-4xl md:text-6xl lg:text-7xl mb-8">America at 250: Still Becoming.</h2>
+    <p class="reveal reveal-d1 text-white/80 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto normal-case font-normal">
+      <!-- INSERT: closing statement — focus on Q1A -->
+      Two and a half centuries in, Americans are neither naive nor defeated. They see the cracks, and they still bet on the future. If the data says anything, it's that the country's defining trait isn't agreement&mdash;it's the refusal to stop trying.
+    </p>
+
+    <div class="reveal reveal-d2 mt-14">
+      <div class="headline text-gold text-7xl md:text-8xl lg:text-9xl"><span class="counter" data-count="34">0</span><span>%</span></div>
+      <p class="mt-4 text-white/80 text-lg md:text-xl normal-case max-w-xl mx-auto">who say they believe the country’s best days are still ahead. <span class="text-white/40">(Q1A)</span></p>
+    </div>
+
+    <figure class="reveal reveal-d3 mt-14 max-w-2xl mx-auto">
+      <blockquote class="text-xl md:text-2xl italic leading-snug normal-case">
+        "My grandparents had less and hoped for more. I figure that's my job too."
+      </blockquote>
+      <figcaption class="mt-3 text-sm text-white/55 normal-case">College student, Southeast, 2026 &middot; <span class="text-white/40">Navigator transcripts</span></figcaption>
+    </figure>
+
+    <div class="reveal reveal-d4 mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#" class="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-navy font-extrabold uppercase tracking-wide px-8 py-4 rounded-full transition">
+        Read the Full Report
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <button type="button" class="share-btn inline-flex items-center justify-center gap-2 border-2 border-white/40 hover:border-gold hover:text-gold text-white font-extrabold uppercase tracking-wide px-8 py-4 rounded-full transition"
+        data-share="America at 250: a landmark survey of what citizens really believe. — Navigator Research">
+        Share This Story
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -525,14 +666,14 @@
   <div class="max-w-3xl mx-auto text-center mb-14">
     <p class="reveal eyebrow text-xs text-gold mb-4">Interactive</p>
     <h2 class="reveal reveal-d1 headline text-4xl md:text-5xl lg:text-6xl mb-5">What Do <em>You</em> Think? Join the Survey.</h2>
-    <p class="reveal reveal-d2 text-navy/70 text-lg normal-case">
+    <!-- <p class="reveal reveal-d2 text-navy/70 text-lg normal-case">
       These questions didn't make our national survey, so we're asking you. Vote below&mdash;and see how your answers compare to other Americans.
-    </p>
+    </p> -->
   </div>
 
   <div class="max-w-2xl mx-auto space-y-6" id="pollApp">
     <!-- Q1 -->
-    <div class="poll-q reveal rounded-3xl bg-white border border-navy/10 p-7 md:p-9 shadow-sm" data-q="1">
+    <!-- <div class="poll-q reveal rounded-3xl bg-white border border-navy/10 p-7 md:p-9 shadow-sm" data-q="1">
       <p class="headline text-xl md:text-2xl mb-5">What is the most American food?</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 poll-options">
         <button class="poll-opt text-left rounded-xl border-2 border-navy/15 px-5 py-3.5 font-bold" data-pct="34">Hamburger</button>
@@ -540,7 +681,7 @@
         <button class="poll-opt text-left rounded-xl border-2 border-navy/15 px-5 py-3.5 font-bold" data-pct="22">BBQ</button>
         <button class="poll-opt text-left rounded-xl border-2 border-navy/15 px-5 py-3.5 font-bold" data-pct="16">Hot dog</button>
       </div>
-    </div>
+    </div> -->
     <!-- Q2 -->
     <div class="poll-q reveal rounded-3xl bg-white border border-navy/10 p-7 md:p-9 shadow-sm" data-q="2">
       <p class="headline text-xl md:text-2xl mb-5">Are you proud to be an American?</p>
@@ -562,91 +703,6 @@
       </div>
     </div>
     <p class="text-center text-xs text-navy/40 normal-case">Demo widget &middot; production: Typeform / Crowdsignal / YOP Poll. "National" bars shown for Q2 &amp; Q3.</p>
-  </div>
-</section>
-
-<!-- ===================== SECTION 10 — MILESTONE EVENTS ===================== -->
-<section class="bg-navy py-20 md:py-28">
-  <div class="max-w-6xl mx-auto px-6 md:px-12">
-    <div class="max-w-3xl mb-12">
-      <p class="reveal eyebrow text-xs text-gold mb-4">250 Years</p>
-      <h2 class="reveal reveal-d1 headline text-4xl md:text-5xl lg:text-6xl mb-5">The Moments That Make Americans Most Proud</h2>
-      <p class="reveal reveal-d2 text-white/70 text-lg normal-case">
-        The top five events across 250 years that Americans say make them proudest to be American. <span class="text-white/40">(Q66)</span>
-      </p>
-    </div>
-  </div>
-
-  <div class="timeline-track overflow-x-auto scrollbar-hide px-6 md:px-12">
-    <div class="max-w-6xl mx-auto relative min-w-[760px]">
-      <div class="absolute left-0 right-0 top-[46px] h-0.5 bg-white/15"></div>
-      <ol class="grid grid-cols-5 gap-6 list-none relative">
-        <li class="tl-node text-center">
-          <div class="mx-auto w-6 h-6 rounded-full bg-gold ring-4 ring-navy relative z-10"></div>
-          <div class="mt-6 headline text-gold text-4xl"><span class="counter" data-count="57">0</span><span>%</span></div>
-          <p class="mt-2 text-white/75 text-sm normal-case">say the Abolition of slavery</p>
-        </li>
-        <li class="tl-node text-center">
-          <div class="mx-auto w-6 h-6 rounded-full bg-gold ring-4 ring-navy relative z-10"></div>
-          <div class="mt-6 headline text-gold text-4xl"><span class="counter" data-count="54">0</span><span>%</span></div>
-          <p class="mt-2 text-white/75 text-sm normal-case">say the signing of the Declaration of Independence, Constitution, and Bill of Rights</p>
-        </li>
-        <li class="tl-node text-center">
-          <div class="mx-auto w-6 h-6 rounded-full bg-gold ring-4 ring-navy relative z-10"></div>
-          <div class="mt-6 headline text-gold text-4xl"><span class="counter" data-count="48">0</span><span>%</span></div>
-          <p class="mt-2 text-white/75 text-sm normal-case">say firefighters and first responders saving Americans on 9/11</p>
-        </li>
-        <li class="tl-node text-center">
-          <div class="mx-auto w-6 h-6 rounded-full bg-gold ring-4 ring-navy relative z-10"></div>
-          <div class="mt-6 headline text-gold text-4xl"><span class="counter" data-count="42">0</span><span>%</span></div>
-          <p class="mt-2 text-white/75 text-sm normal-case">the expansion of voting rights to include women and Americans of color</p>
-        </li>
-        <li class="tl-node text-center">
-          <div class="mx-auto w-6 h-6 rounded-full bg-gold ring-4 ring-navy relative z-10"></div>
-          <div class="mt-6 headline text-gold text-4xl"><span class="counter" data-count="42">0</span><span>%</span></div>
-          <p class="mt-2 text-white/75 text-sm normal-case">say the Civil Rights movement</p>
-        </li>
-      </ol>
-    </div>
-  </div>
-  <p class="text-center text-white/40 text-xs mt-8 normal-case px-6">Q66 &middot; placeholder values &middot; horizontal scroll on mobile</p>
-</section>
-
-<!-- ===================== SECTION 11 — THE NEXT 250 YEARS ===================== -->
-<section id="report" class="relative overflow-hidden bg-navy">
-  <img src="assets/child-american-flag.jpg" loading="lazy" decoding="async" alt="Child holding an American flag" class="absolute inset-0 w-full h-full object-cover" />
-  <div class="absolute inset-0 bg-navy/[.78]"></div>
-
-  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center py-28 md:py-36">
-    <h2 class="reveal headline text-4xl md:text-6xl lg:text-7xl mb-8">America at 250: Still Becoming.</h2>
-    <p class="reveal reveal-d1 text-white/80 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto normal-case font-normal">
-      <!-- INSERT: closing statement — focus on Q1A -->
-      Two and a half centuries in, Americans are neither naive nor defeated. They see the cracks, and they still bet on the future. If the data says anything, it's that the country's defining trait isn't agreement&mdash;it's the refusal to stop trying.
-    </p>
-
-    <div class="reveal reveal-d2 mt-14">
-      <div class="headline text-gold text-7xl md:text-8xl lg:text-9xl"><span class="counter" data-count="2">0</span><span> in 3</span></div>
-      <p class="mt-4 text-white/80 text-lg md:text-xl normal-case max-w-xl mx-auto">Americans believe the country's best days are still ahead. <span class="text-white/40">(Q1A)</span></p>
-    </div>
-
-    <figure class="reveal reveal-d3 mt-14 max-w-2xl mx-auto">
-      <blockquote class="text-xl md:text-2xl italic leading-snug normal-case">
-        "My grandparents had less and hoped for more. I figure that's my job too."
-      </blockquote>
-      <figcaption class="mt-3 text-sm text-white/55 normal-case">College student, Southeast, 2026 &middot; <span class="text-white/40">Navigator transcripts</span></figcaption>
-    </figure>
-
-    <div class="reveal reveal-d4 mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#" class="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-navy font-extrabold uppercase tracking-wide px-8 py-4 rounded-full transition">
-        Read the Full Report
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <button type="button" class="share-btn inline-flex items-center justify-center gap-2 border-2 border-white/40 hover:border-gold hover:text-gold text-white font-extrabold uppercase tracking-wide px-8 py-4 rounded-full transition"
-        data-share="America at 250: a landmark survey of what citizens really believe. — Navigator Research">
-        Share This Story
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-      </button>
-    </div>
   </div>
 </section>
 
