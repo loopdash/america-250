@@ -78,17 +78,6 @@
   @keyframes drift { from { transform: translate3d(0,0,0); } to { transform: translate3d(-600px,-320px,0); } }
   @keyframes twinkle { 0%,100% { opacity: .35; } 50% { opacity: .7; } }
 
-  /* ---- 250 graphic — video clipped to the numerals ---- */
-  .flag-250 {
-    display: block;
-    width: clamp(280px, 70vw, 820px);
-    aspect-ratio: 2.55 / 1;
-    object-fit: cover;
-    filter: drop-shadow(0 8px 30px rgba(0,0,0,.45));
-    /* mask the video to the shape of "250" */
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 118'%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='128' letter-spacing='-4'%3E250%3C/text%3E%3C/svg%3E") center / contain no-repeat;
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 118'%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='128' letter-spacing='-4'%3E250%3C/text%3E%3C/svg%3E") center / contain no-repeat;
-  }
 
   /* ---- Down arrow ---- */
   .scroll-cue { animation: bob 1.8s ease-in-out infinite; }
@@ -217,10 +206,8 @@
   </div>
 
   <div class="relative z-20 h-full flex flex-col items-center justify-center text-center px-6">
-    <div id="flag250" class="select-none">
-      <video class="flag-250" autoplay muted loop playsinline aria-label="250">
-        <source src="istockphoto-494101878-640_adpp_is.mp4" type="video/mp4" />
-      </video>
+    <div class="w-full mb-6 max-w-md md:max-w-lg lg:max-w-xl">
+      <img src="assets/flag-banner.jpg" loading="lazy" decoding="async" alt="American flag with '250' in the canton" class="canton" />
     </div>
     <h1 class="headline text-3xl md:text-5xl lg:text-6xl text-white max-w-4xl mt-2 md:mt-4">
       America at 250:<br class="hidden md:block" />  The State of Our Union
@@ -274,10 +261,10 @@
 
 <!-- ===================== SECTION 3 — CHAPTER 1: PRIDE & IDENTITY ===================== -->
 <section id="pride" class="bg-cream text-navy">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
+  <div class="mx-auto grid grid-cols-1 lg:grid-cols-2">
     <!-- sticky text -->
     <div class="lg:sticky lg:top-0 flex items-center px-6 md:px-12 py-20 lg:py-10">
-      <div class="max-w-xl">
+      <div class="max-w-full lg:max-w-xl lg:ml-auto">
         <p class="eyebrow text-xs text-gold mb-4">Chapter 1 &middot; Pride &amp; Identity</p>
         <h2 class="headline text-4xl md:text-5xl lg:text-6xl mb-6">How Proud Are Americans of Their Country?</h2>
         <p class="text-navy/70 text-lg leading-relaxed mb-10 normal-case">
@@ -293,20 +280,20 @@
           </div>
           <div class="barrow" style="--w:55%">
             <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>The Constitution, Bill of Rights, and Declaration of Independence </span><span>55%</span></div>
-            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/70"></div></div>
+            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/80"></div></div>
           </div>
           <div class="barrow" style="--w:41%">
             <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>America’s history</span><span>41%</span></div>
-            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/50"></div></div>
+            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/60"></div></div>
           </div>
           <div class="barrow" style="--w:38%">
             <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>The American Dream</span><span>38%</span></div>
-            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/30"></div></div>
+            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/40"></div></div>
           </div>
 
           <div class="barrow" style="--w:37%">
             <div class="flex justify-between text-sm font-extrabold mb-1.5"><span>The American military</span><span>37%</span></div>
-            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/30"></div></div>
+            <div class="h-4 rounded-full bg-navy/10 overflow-hidden"><div class="bar-fill h-full rounded-full bg-navy/20"></div></div>
           </div>
           <p class="text-xs text-navy/40 pt-2 normal-case">Q6 &middot; "How important is being an American to your identity?" &middot; n=[2,000] &middot; placeholder values</p>
         </div>
@@ -323,7 +310,7 @@
 
     <!-- image reveals -->
     <div class="hidden h-full lg:block">
-      <img src="assets/statue-of-liberty.jpeg" loading="lazy" decoding="async" alt="Statue of Liberty" class="h-full w-full object-cover" />
+      <img src="assets/chapter-1-img.jpg" loading="lazy" decoding="async" alt="The Bill of Rights" class="h-full w-full object-cover" />
     </div>
   </div>
 </section>
@@ -407,7 +394,7 @@
 
 <!-- ===================== SECTION 5 — CHAPTER 3: ECONOMY & THE AMERICAN DREAM ===================== -->
 <section id="economy" class="bg-cream text-navy">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
+  <div class="mx-auto grid grid-cols-1 lg:grid-cols-2">
     <!-- sticky image -->
     <div class="hidden lg:block order-1">
       <div class="lg:sticky lg:top-0 h-screen overflow-hidden">
@@ -416,7 +403,7 @@
     </div>
     <!-- text scrolls -->
     <div class="order-2 px-6 md:px-12 py-20 md:py-28">
-      <div class="max-w-xl ml-auto">
+      <div class="max-w-full lg:max-w-xl mr-auto ">
         <p class="reveal eyebrow text-xs text-gold mb-4">Chapter 3 &middot; Economy &amp; the American Dream</p>
         <h2 class="reveal reveal-d1 headline text-4xl md:text-5xl lg:text-6xl mb-6">What Does "The American Dream" Mean to You?</h2>
         <p class="reveal reveal-d2 text-navy/70 text-lg leading-relaxed mb-12 normal-case">
@@ -590,36 +577,47 @@
 
 
       <article class="reveal rounded-2xl bg-navy text-white flex flex-col w-full p-3">
-        <img src="assets/placeholder-img.png" class="w-full rounded-lg mb-3" style="aspect-ratio: 3/2; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+        <img src="assets/placeholder-img.jpg" class="w-full rounded-lg mb-3" style="aspect-ratio: 400/315; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
         <div class="mt-3 headline text-gold text-4xl"><span class="counter" data-count="54">0</span><span>%</span></div>
         <p class="mt-2 text-white/75 text-sm normal-case">say the signing of the Declaration of Independence, Constitution, and Bill of Rights</p>
       </article>
 
       <article class="reveal rounded-2xl bg-navy text-white flex flex-col w-full p-3">
-        <img src="assets/placeholder-img.png" class="w-full rounded-lg mb-3" style="aspect-ratio: 3/2; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+        <img src="assets/placeholder-img.jpg" class="w-full rounded-lg mb-3" style="aspect-ratio: 400/315; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
         <div class="mt-3 headline text-gold text-4xl"><span class="counter" data-count="57">0</span><span>%</span></div>
         <p class="mt-2 text-white/75 text-sm normal-case">say the abolition of slavery</p>
       </article>
           
       <article class="reveal rounded-2xl bg-navy text-white flex flex-col w-full p-3">
-        <img src="assets/placeholder-img.png" class="w-full rounded-lg mb-3" style="aspect-ratio: 3/2; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+        <img src="assets/placeholder-img.jpg" class="w-full rounded-lg mb-3" style="aspect-ratio: 400/315; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
         <div class="mt-3 headline text-gold text-4xl"><span class="counter" data-count="42">0</span><span>%</span></div>
         <p class="mt-2 text-white/75 text-sm normal-case">say the expansion of voting rights to include women and Americans of color</p>
       </article>
 
       <article class="reveal rounded-2xl bg-navy text-white flex flex-col w-full p-3">
-        <img src="assets/placeholder-img.png" class="w-full rounded-lg mb-3" style="aspect-ratio: 3/2; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+        <img src="assets/placeholder-img.jpg" class="w-full rounded-lg mb-3" style="aspect-ratio: 400/315; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
         <div class="mt-3 headline text-gold text-4xl"><span class="counter" data-count="42">0</span><span>%</span></div>
         <p class="mt-2 text-white/75 text-sm normal-case">say the Civil Rights movement</p>
       </article>
 
       <article class="reveal rounded-2xl bg-navy text-white flex flex-col w-full p-3">
-        <img src="assets/placeholder-img.png" class="w-full rounded-lg mb-3" style="aspect-ratio: 3/2; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
+        <img src="assets/placeholder-img.jpg" class="w-full rounded-lg mb-3" style="aspect-ratio: 400/315; height: auto; object-fit: cover; "/> <!-- placeholder for icon image -->
         <div class="mt-3 headline text-gold text-4xl"><span class="counter" data-count="48">0</span><span>%</span></div>
         <p class="mt-2 text-white/75 text-sm normal-case">say firefighters and first responders saving Americans on 9/11</p>
       </article>
 
     </div>
+
+    <figure class="border-l-4 border-navy pl-6 my-12">
+      <blockquote class="text-l italic text-navy leading-snug normal-case">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      </blockquote>
+    </figure>
 
     <p class="text-center text-navy/40 text-xs mt-8 normal-case px-6">Q66 &middot; placeholder values &middot; horizontal scroll on mobile</p>
 
